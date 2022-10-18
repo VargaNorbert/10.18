@@ -25,10 +25,6 @@ let tomb = [
         "meret": "256"
     },
     {
-        "nev": "Átlagos SD kártya 2.1",
-        "meret": "256"
-    },
-    {
         "nev": "Ólcsó microSD",
         "meret": "32"
     },
@@ -44,10 +40,14 @@ function init() {
         let szulo = document.getElementById('row');
         let szoveg = document.getElementById('keres').value;
         let a = szoveg === null || szoveg === void 0 ? void 0 : szoveg.length;
+        let div;
+        while (szulo.firstChild) {
+            szulo.removeChild(szulo.firstChild);
+        }
         if (a >= 3) {
             for (let e of tomb) {
                 if (e.nev.includes(szoveg)) {
-                    let div = document.createElement("div");
+                    div = document.createElement("div");
                     div.classList.add("card,");
                     div.classList.add("col-md-4");
                     div.classList.add("col-sm-12");
